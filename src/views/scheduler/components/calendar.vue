@@ -3,14 +3,14 @@
 	<div class="calendar row text-center middle-xs">
 		<div 
 			class="col-xs-2 arrow noselect" 
-			@click="gotoLastDay"
+			@click="gotoPastDay"
 		>
 			&lsaquo;
 		</div>
 		<div class="col-xs-8">
 			<h1 class="day">{{ day }}</h1>
 			<h2 class="month">{{ month }}</h2>
-			<h2 class="year">{{ year }}</h2>
+			<h3 class="year">{{ year }}</h3>
 		</div>
 		<div 
 			class="col-xs-2 arrow noselect" 
@@ -24,59 +24,39 @@
 <script lang="ts">
 
 import { Component, Vue } from "vue-property-decorator"
-import * as moment from "moment"
+import { Getter, Mutation } from "vuex-class"
 
 @Component
 export default class Calendar extends Vue {
 
-	date = moment()
-
-	get year() {
-		return this.date.format("YYYY")
-	}
-
-	get month() {
-		return this.date.format("MMMM")
-	}
-
-	get day() {
-		return this.date.format("DD")
-	}
-
-	gotoNextDay() {
-		this.date = moment(this.date.add(1, "days"))
-	}
-
-	gotoLastDay() {
-		this.date = moment(this.date.subtract(1, "days"))
-	}
+	@Getter day: string
+	@Getter month: string
+	@Getter year: string
+	@Mutation gotoNextDay: () => any
+	@Mutation gotoPastDay: () => any
 }
 
 </script>
 <style lang="stylus" scoped>
-
-date_color = #46494C
-month_color = #4C5C68
-year_color = #0B7A75
+@import "../../../styles/variables"  
 
 .calendar
-	max-width 700px
-	margin .7em auto
+	margin .7em 0
 .day, .month, .year
 	line-height 1
 .day
 	font-size 130px
-	color date_color
+	color color_1
 .month
 	text-transform uppercase
 	font-size 40px
-	color month_color
+	color color_2
 .year
 	margin-top .2em
 	font-size 33px
-	color year_color
+	color color_3
 .arrow
 	font-size 70px
-	color month_color
+	color color_2
 	cursor pointer
 </style>
