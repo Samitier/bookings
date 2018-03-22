@@ -52,7 +52,7 @@ export default class BookingList extends Vue {
 .booking-list
 	background-color color_4
 	padding 1.5em
-	margin 2em 1em 2em 1em
+	margin 2em 1em 1.5em 1em
 	box-shadow 0 0 2px 1px #00000033
 	border-radius 2px
 .headers

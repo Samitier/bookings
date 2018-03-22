@@ -3,6 +3,7 @@
 	<div class="scheduler">
 		<calendar/>
 		<bookingList />
+		<addBooking />
 	</div>
 
 </template>
@@ -11,11 +12,13 @@
 import { Component, Vue } from "vue-property-decorator"
 import calendar from "./components/calendar.vue"
 import bookingList from "./components/booking-list.vue"
+import addBooking from "./components/add-booking.vue"
 
 @Component({
 	components: {
 		calendar,
 		bookingList,
+		addBooking,
 	},
 })
 export default class Scheduler extends Vue {
