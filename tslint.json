@@ -22,6 +22,7 @@
 			"never"
 		],
 		"arrow-parens": false,
-		"member-access": false
+		"member-access": false,
+		"trailing-comma": false
 	}
 }

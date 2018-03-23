@@ -6,10 +6,10 @@
 				<h4>#</h4>
 			</div>
 			<div class="col-xs-5">
-				<h4>Nombre</h4>
+				<h4>Nom</h4>
 			</div>
 			<div class="col-xs-5">
-				<h4>Teléfono</h4>
+				<h4>Telèfon</h4>
 			</div>
 		</div>
 		<div
@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class="text-center booking" v-if="!dayBookings.length">
-			<i>(Todavía no hay reservas este día)</i>
+			<i>(Encara no hi ha reserves per aquest dia)</i>
 		</div>
 	</div>
   
@@ -40,7 +40,7 @@ import { Getter } from "vuex-class"
 import Booking from "@/models/booking"
 
 @Component
-export default class BookingList extends Vue {
+export default class extends Vue {
 
 	@Getter dayBookings: Booking[]
 }

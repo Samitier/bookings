@@ -1,27 +1,23 @@
 <template>
 
 	<div class="scheduler">
-		<calendar/>
-		<bookingList />
-		<addBooking />
+		<Calendar/>
+		<BookingList />
+		<AddBooking />
 	</div>
 
 </template>
 <script lang="ts">
 
 import { Component, Vue } from "vue-property-decorator"
-import calendar from "./components/calendar.vue"
-import bookingList from "./components/booking-list.vue"
-import addBooking from "./components/add-booking.vue"
+import Calendar from "./components/calendar.vue"
+import BookingList from "./components/booking-list.vue"
+import AddBooking from "./components/add-booking.vue"
 
 @Component({
-	components: {
-		calendar,
-		bookingList,
-		addBooking,
-	},
+	components: { Calendar, BookingList, AddBooking },
 })
-export default class Scheduler extends Vue {
+export default class extends Vue {
 }
 
 </script>

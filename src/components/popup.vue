@@ -4,12 +4,12 @@
 			<div class="popup-backdrop fixed-fullscreen"></div>
 			<div class="popup fixed-fullscreen">
 				<a class="popup-close" @click="close">×</a>
-				<h4 class="popup-title text-center">{{ title }}</h4>
+				<h4 v-if="title" class="popup-title text-center">{{ title }}</h4>
 				<div class="popup-content">
 					<slot/>
 				</div>
-				<div class="popup-accept-container">
-					<a class="btn" @click="accept">Aceptar</a>
+				<div class="popup-accept-container" v-if="!hideAcceptButton">
+					<a class="btn" @click="accept">Acceptar</a>
 				</div>
 			</div>
 		</div>
@@ -19,9 +19,10 @@
 
 import { Component, Vue, Emit, Prop } from "vue-property-decorator"
 @Component
-export default class Popup extends Vue {
+export default class extends Vue {
 
 	@Prop() title: string
+	@Prop() hideAcceptButton: boolean
 
 	isOpen: boolean = false
 
@@ -53,7 +54,9 @@ export default class Popup extends Vue {
 	margin auto
 	padding 1.5em
 	max-width 350px
-	height 400px
+	max-height: 400px
+	bottom auto
+	top 5em
 	left 2em
 	right 2em
 	border-radius 2px

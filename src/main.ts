@@ -3,6 +3,7 @@ import App from "./app.vue"
 import router from "./router"
 import store from "./store"
 import "./registerServiceWorker"
+import "./styles/pikaday.css"
 
 Vue.config.productionTip = false
 

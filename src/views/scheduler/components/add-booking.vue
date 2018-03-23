@@ -2,9 +2,9 @@
 
 	<div class="text-center">
 		<a class="btn" @click="openAddForm">
-			Nueva reserva
+			Nova reserva
 		</a>
-		<popup ref="popupAdd" :title="'Nueva reserva'">
+		<popup ref="popupAdd" :title="'Nova reserva'">
 			(popup content form)
 		</popup>
 	</div>
@@ -16,11 +16,9 @@ import { Getter, Mutation } from "vuex-class"
 import Popup from "@/components/popup.vue"
 
 @Component({
-	components: {
-		Popup,
-	},
+	components: { Popup }
 })
-export default class AddBooking extends Vue {
+export default class extends Vue {
 
 	openAddForm() {
 		(this.$refs.popupAdd as Popup).open()

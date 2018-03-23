@@ -1,9 +1,9 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import * as moment from "moment"
-import "moment/locale/es"
+import "moment/locale/ca"
 import Booking from "@/models/booking"
-moment.locale("es")
+moment.locale("ca")
 
 Vue.use(Vuex)
 
@@ -19,6 +19,7 @@ export default new Vuex.Store({
 	mutations: {
 		gotoNextDay: state => state.date = moment(state.date.add(1, "days")),
 		gotoPastDay: state => state.date = moment(state.date.subtract(1, "days")),
+		setDate: (state, date: moment.Moment) => state.date = date,
 	},
 	actions: {
 
@@ -27,6 +28,7 @@ export default new Vuex.Store({
 		day: state => state.date.format("DD"),
 		month: state => state.date.format("MMMM"),
 		year: state => state.date.format("YYYY"),
+		date: state => state.date.toDate(),
 
 		dayBookings: state => state.bookings.filter(r => r.date.isSame(state.date, "day")),
 	},

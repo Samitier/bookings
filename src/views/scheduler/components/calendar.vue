@@ -7,7 +7,7 @@
 		>
 			&lsaquo;
 		</div>
-		<div class="col-xs-8">
+		<div class="col-xs-8" @click="openDatepicker">
 			<h1 class="day">{{ day }}</h1>
 			<h2 class="month">{{ month }}</h2>
 			<h3 class="year">{{ year }}</h3>
@@ -18,22 +18,47 @@
 		>
 			&rsaquo;
 		</div>
+		<popup 
+			ref="datepickerPopup" 
+			:hideAcceptButton="true"
+		>
+			<datepicker @date-selected="onDateSelected"/>
+		</popup>
 	</div>
-
 </template>
 <script lang="ts">
 
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Mutation } from "vuex-class"
+import * as moment from "moment"
+import Popup from "@/components/popup.vue"
+import Datepicker from "@/components/datepicker.vue"
 
-@Component
-export default class Calendar extends Vue {
+@Component({
+	components: { Popup, Datepicker }
+})
+export default class extends Vue {
 
 	@Getter day: string
 	@Getter month: string
 	@Getter year: string
 	@Mutation gotoNextDay: () => any
 	@Mutation gotoPastDay: () => any
+	@Mutation setDate: (date: moment.Moment) => any
+
+	openDatepicker() {
+		(this.$refs.datepickerPopup as Popup).open()
+	}
+
+	onDateSelected(date: moment.Moment) {
+		try {
+			this.setDate(date)
+		} catch (e) {
+			// For some weird reason this gets a typeError exception, but works like a charm.
+			// Probably a vuex-class bug.
+		}
+		(this.$refs.datepickerPopup as Popup).close()
+	}
 }
 
 </script>
@@ -59,4 +84,5 @@ export default class Calendar extends Vue {
 	font-size 70px
 	color color_2
 	cursor pointer
+
 </style>
