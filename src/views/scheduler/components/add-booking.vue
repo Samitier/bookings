@@ -1,24 +1,30 @@
 <template>
 
 	<div class="text-center">
-		<a class="btn">
+		<a class="btn" @click="openAddForm">
 			Nueva reserva
 		</a>
-		<!-- <popup /> -->
+		<popup ref="popupAdd" :title="'Nueva reserva'">
+			(popup content form)
+		</popup>
 	</div>
 </template>
 <script lang="ts">
 
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Mutation } from "vuex-class"
-import popup from "@/components/popup.vue"
+import Popup from "@/components/popup.vue"
 
 @Component({
 	components: {
-		popup
-	}
+		Popup,
+	},
 })
 export default class AddBooking extends Vue {
+
+	openAddForm() {
+		(this.$refs.popupAdd as Popup).open()
+	}
 }
 
 </script>
