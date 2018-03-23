@@ -2,7 +2,7 @@
 
 	<div class="booking-list">
 		<div class="row headers" v-if="dayBookings.length">
-			<div class="col-xs-2">
+			<div class="col-xs-1">
 				<h4>#</h4>
 			</div>
 			<div class="col-xs-5">
@@ -17,7 +17,7 @@
 			v-for="booking in dayBookings"
 			:key="booking.id"
 		>
-			<div class="col-xs-2">
+			<div class="col-xs-1">
 				{{ booking.table }}
 			</div>
 			<div class="col-xs-5">
@@ -56,10 +56,11 @@ export default class BookingList extends Vue {
 	box-shadow 0 0 2px 1px #00000033
 	border-radius 2px
 .headers
-	color: color_2
-	padding-bottom: .3em
+	color color_2
+	padding-bottom .3em
 .booking
-	color: color_3
+	color color_3
 	font-weight bold
+	padding .1em 0
 
 </style>

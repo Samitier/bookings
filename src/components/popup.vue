@@ -56,9 +56,10 @@ export default class Popup extends Vue {
 	height 400px
 	left 2em
 	right 2em
+	border-radius 2px
 	box-shadow 0 0 2px 1px #00000033
 .popup-backdrop
-	background-color #00000022
+	background-color #00000028
 	backdrop-filter blur(2px)
 	webkit-backdrop-filter blur(2px)
 .popup-close
