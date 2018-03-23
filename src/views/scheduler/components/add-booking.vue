@@ -4,15 +4,20 @@
 		<a class="btn">
 			Nueva reserva
 		</a>
+		<!-- <popup /> -->
 	</div>
-
 </template>
 <script lang="ts">
 
 import { Component, Vue } from "vue-property-decorator"
 import { Getter, Mutation } from "vuex-class"
+import popup from "@/components/popup.vue"
 
-@Component
+@Component({
+	components: {
+		popup
+	}
+})
 export default class AddBooking extends Vue {
 }
 
