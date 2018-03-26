@@ -88,7 +88,7 @@ export default class extends Vue {
 	right 0
 	.btn
 		display block
-		margin 1.2em
+		margin 1.5em
 .open-enter-active, .open-leave-active
 	transition opacity .5s
 	.popup

@@ -20,6 +20,10 @@ export default new Vuex.Store({
 		gotoNextDay: state => state.date = moment(state.date.add(1, "days")),
 		gotoPastDay: state => state.date = moment(state.date.subtract(1, "days")),
 		setDate: (state, date: moment.Moment) => state.date = date,
+		addBooking: (state, booking: Booking) => {
+			booking.date = moment(state.date)
+			state.bookings.push(booking)
+		}
 	},
 	actions: {
 

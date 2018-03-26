@@ -32,11 +32,8 @@ import { Component, Vue } from "vue-property-decorator"
 import { Getter, Mutation } from "vuex-class"
 import * as moment from "moment"
 import Popup from "@/components/popup.vue"
-import Datepicker from "@/components/datepicker.vue"
 
-@Component({
-	components: { Popup, Datepicker }
-})
+@Component
 export default class extends Vue {
 
 	@Getter day: string
