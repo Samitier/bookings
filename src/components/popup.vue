@@ -5,7 +5,7 @@
 			<div class="popup fixed-fullscreen">
 				<a class="popup-close" @click="close">×</a>
 				<h4 v-if="title" class="popup-title text-center">{{ title }}</h4>
-				<div class="popup-content">
+				<div class="popup-content text-left" :class="popupContentClass">
 					<slot/>
 				</div>
 				<div class="popup-accept-container" v-if="!hideAcceptButton">
@@ -25,6 +25,8 @@ export default class extends Vue {
 	@Prop() hideAcceptButton: boolean
 
 	isOpen: boolean = false
+
+	get popupContentClass() { return !this.hideAcceptButton && "m-b-2-5" }
 
 	open() {
 		this.isOpen = true
@@ -95,4 +97,6 @@ export default class extends Vue {
 	opacity 0
 	.popup
 		transform translateY(10%)
+.m-b-2-5
+	margin-bottom 2.5em
 </style>

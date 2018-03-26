@@ -8,5 +8,9 @@ export default class Booking {
 		public name: string = "",
 		public table: number = 0,
 		public phone: string = "",
+		public email: string = "",
+		public numPeople: number = 0,
+		public isDone: boolean = false,
+		public isConfirmed: boolean = false
 	) {}
 }

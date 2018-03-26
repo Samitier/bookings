@@ -5,7 +5,14 @@
 			Nova reserva
 		</a>
 		<popup ref="popupAdd" :title="'Nova reserva'">
-			(popup content form)
+			<div class="form-group">
+				<label>Nom i Cognoms</label>
+				<input type="text">
+			</div>
+			<div class="form-group">
+				<label>Telèfon</label>
+				<input type="text">
+			</div>
 		</popup>
 	</div>
 </template>
