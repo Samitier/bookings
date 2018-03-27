@@ -1,7 +1,9 @@
 const 	express = require("express"),
 		http = require("http"),
 		path = require("path"),
-		compression = require("compression")
+		compression = require("compression"),
+		sslRedirect = require("heroku-ssl-redirect")
+
 
 const { PORT } = process.env
 
@@ -15,10 +17,12 @@ class Server {
 		const app = express()
 		// Gzip
 		app.use(compression())
+		// Heroku https redirect
+		app.use(sslRedirect())
 		// Setting the static file server to the folder "public"
 		app.use(express.static(path.join(__dirname, "../dist")))
 		// Return index.html instead on 404
-		app.use((req, res) => res.sendFile(path.join(__dirname, "../dist/index.html")))	
+		app.use((req, res) => res.sendFile(path.join(__dirname, "../dist/index.html")))
 		const server = http.createServer(app)
 		server.listen(PORT || 3001)
 			.on(

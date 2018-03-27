@@ -13,6 +13,7 @@
 		"compression": "1.7.2",
 		"express": "4.16.2",
 		"flexboxgrid": "^6.3.1",
+		"heroku-ssl-redirect": "0.0.4",
 		"moment": "^2.21.0",
 		"pikaday": "^1.7.0",
 		"register-service-worker": "^1.0.0",
