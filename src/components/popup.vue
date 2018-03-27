@@ -75,7 +75,7 @@ export default class extends Vue {
 	font-size 25px
 	color color_1
 .popup-content
-	overflow auto
+	overflow auto hidden
 .popup-title
 	text-transform uppercase
 	font-size 14px

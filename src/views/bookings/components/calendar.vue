@@ -63,7 +63,7 @@ export default class extends Vue {
 @import "../../../styles/variables"  
 
 .calendar
-	margin .5em 0
+	margin .4em 0
 .day, .month, .year
 	line-height 1
 .day

@@ -1,6 +1,6 @@
 <template>
 
-	<div class="scheduler">
+	<div class="bookings">
 		<Calendar/>
 		<BookingList />
 		<AddBooking />
@@ -23,7 +23,7 @@ export default class extends Vue {
 </script>
 <style lang="stylus" scoped>
 
-.scheduler
+.bookings
 	max-width 600px
 	margin auto
 	

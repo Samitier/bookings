@@ -1,6 +1,6 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Scheduler from "./views/scheduler/scheduler.vue"
+import Bookings from "./views/bookings/bookings.vue"
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
 	routes: [
 		{
 			path: "/",
-			name: "scheduler",
-			component: Scheduler,
+			name: "bookings",
+			component: Bookings,
 		},
 	],
 })

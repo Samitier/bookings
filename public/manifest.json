@@ -1,6 +1,6 @@
 {
-  "name": "scheduler",
-  "short_name": "scheduler",
+  "name": "Bookings",
+  "short_name": "Bookings",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#DCDCDD",
+  "theme_color": "#4C5C68"
 }
