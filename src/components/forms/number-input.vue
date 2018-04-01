@@ -17,11 +17,11 @@ import { Vue, Component, Prop, Emit } from "vue-property-decorator"
 @Component
 export default class extends Vue {
 
-	inputValue: number =  this.value
 	isFocus: boolean = false
 
 	@Prop() name: string
 	@Prop() value: number
+	inputValue: number =  this.value
 	@Emit() input(value: number) { /* */ }
 
 	get cssClass() {

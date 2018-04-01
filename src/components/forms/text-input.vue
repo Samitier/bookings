@@ -18,7 +18,6 @@ import { Vue, Component, Prop, Emit } from "vue-property-decorator"
 export default class extends Vue {
 
 	isFocus: boolean = false
-	inputValue: string = this.value
 
 	@Prop() name: string
 	@Prop() value: string
