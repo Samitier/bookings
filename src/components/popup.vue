@@ -8,8 +8,15 @@
 				<div class="popup-content text-left" :class="popupContentClass">
 					<slot/>
 				</div>
-				<div class="popup-accept-container" v-if="!hideAcceptButton">
-					<a class="btn" @click="accept">Acceptar</a>
+				<div 
+					class="popup-accept-container" 
+					v-if="!hideAcceptButton"
+				>
+					<a 
+						class="btn" 
+						@click="accept"
+						:class="okBtnClass"
+					>Acceptar</a>
 				</div>
 			</div>
 		</div>
@@ -23,10 +30,12 @@ export default class extends Vue {
 
 	@Prop() title: string
 	@Prop() hideAcceptButton: boolean
+	@Prop() isOkBtnDisabled: boolean
 
 	isOpen: boolean = false
 
-	get popupContentClass() { return !this.hideAcceptButton && "m-b-2-5" }
+	get popupContentClass() { return { "m-b-2-5": !this.hideAcceptButton }}
+	get okBtnClass() { return { disabled: this.isOkBtnDisabled }}
 
 	open() {
 		this.isOpen = true
@@ -95,6 +104,7 @@ export default class extends Vue {
 		transition transform .5s
 .open-enter, .open-leave-to
 	opacity 0
+	pointer-events none
 	.popup
 		transform translateY(10%)
 .m-b-2-5

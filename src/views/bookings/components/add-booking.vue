@@ -4,14 +4,19 @@
 		<a class="btn" @click="openAddForm">
 			Nova reserva
 		</a>
-		<popup ref="popupAdd" :title="'Nova reserva'" @accept="onAddBooking">
+		<popup 
+			ref="popupAdd"
+			:title="'Nova reserva'"
+			:isOkBtnDisabled="!isBookingValid"
+			@accept="onAddBooking"
+		>
 			<div class="row">
-				<!-- <div class="col-xs-6">
-					<text-input :name="'Taula'" v-model="booking.table"/>
-				</div> -->
-				<!-- <div class="col-xs-6">
-					<text-input	:name="'Hora'" />
-				</div> -->
+				<div class="col-xs-6">
+					<number-input :name="'Taula'" v-model="booking.table"/>
+				</div>
+				<div class="col-xs-6">
+					<!-- <text-input	:name="'Hora'" v-model="booking.date" /> -->
+				</div>
 				<div class="col-xs-12">
 					<text-input :name="'Nom i Cognoms'" v-model="booking.name"/>
 				</div>
@@ -21,9 +26,9 @@
 				<div class="col-xs-12">
 					<text-input :name="'Email'" v-model="booking.email"/>
 				</div>
-				<!-- <div class="col-xs-12">
-					<text-input :name="'Número de persones'" v-model="booking.numPeople"/>
-				</div> -->
+				<div class="col-xs-12">
+					<number-input :name="'Número de persones'" v-model="booking.numPeople"/>
+				</div>
 			</div>
 		</popup>
 	</div>
@@ -40,6 +45,10 @@ export default class extends Vue {
 
 	booking: Booking = new Booking()
 	@Mutation addBooking: (booking: Booking) => void
+
+	get isBookingValid() {
+		return this.booking.table && this.booking.name
+	}
 
 	openAddForm() {
 		(this.$refs.popupAdd as Popup).open()
