@@ -5,11 +5,11 @@
 			<div class="col-xs-1">
 				<h4>#</h4>
 			</div>
-			<div class="col-xs-5">
-				<h4>Nom</h4>
+			<div class="col-xs-3 text-center">
+				<h4>Hora</h4>
 			</div>
 			<div class="col-xs-5">
-				<h4>Telèfon</h4>
+				<h4>Nom</h4>
 			</div>
 		</div>
 		<div
@@ -20,11 +20,11 @@
 			<div class="col-xs-1">
 				{{ booking.table }}
 			</div>
-			<div class="col-xs-5">
-				{{ booking.name }}
+			<div class="col-xs-3 text-center">
+				{{ booking.time }}
 			</div>
 			<div class="col-xs-5">
-				{{ booking.phone }}
+				{{ booking.name }}
 			</div>
 		</div>
 		<div class="text-center booking" v-if="!dayBookings.length">

@@ -25,6 +25,9 @@ filled_color = lighten(color_3, 5%)
 		background-color transparent
 		padding .4em 0 .5em 0
 		color color_2
+		&::placeholder
+			transition opacity 0.3s
+			opacity 0
 	label
 		font-weight bold
 		color inactive_color
@@ -36,6 +39,8 @@ filled_color = lighten(color_3, 5%)
 	&.focus, &.filled
 		&:after
 			height 3px
+		input::placeholder
+			opacity .7
 		label
 			transform-origin left center
 			transform scale(0.85)

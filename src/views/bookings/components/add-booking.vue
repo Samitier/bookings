@@ -15,7 +15,7 @@
 					<number-input :name="'Taula'" v-model="booking.table"/>
 				</div>
 				<div class="col-xs-6">
-					<!-- <text-input	:name="'Hora'" v-model="booking.date" /> -->
+					<time-input	:name="'Hora'" v-model="booking.date"/>
 				</div>
 				<div class="col-xs-12">
 					<text-input :name="'Nom i Cognoms'" v-model="booking.name"/>
@@ -36,7 +36,8 @@
 <script lang="ts">
 
 import { Component, Vue } from "vue-property-decorator"
-import { Getter, Mutation } from "vuex-class"
+import { State, Mutation } from "vuex-class"
+import * as moment from "moment"
 import Popup from "@/components/popup.vue"
 import Booking from "@/models/booking"
 
@@ -44,6 +45,7 @@ import Booking from "@/models/booking"
 export default class extends Vue {
 
 	booking: Booking = new Booking()
+	@State("date") date: moment.Moment
 	@Mutation addBooking: (booking: Booking) => void
 
 	get isBookingValid() {
@@ -53,6 +55,7 @@ export default class extends Vue {
 	openAddForm() {
 		(this.$refs.popupAdd as Popup).open()
 		this.booking = new Booking()
+		this.booking.date = this.date
 	}
 
 	onAddBooking() {

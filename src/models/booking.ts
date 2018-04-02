@@ -13,4 +13,8 @@ export default class Booking {
 		public isDone: boolean = false,
 		public isConfirmed: boolean = false
 	) {}
+
+	get time() {
+		return this.date.format("kk:mm")
+	}
 }

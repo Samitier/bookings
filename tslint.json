@@ -13,6 +13,7 @@
 			"tabs",
 			4
 		],
+		"curly": false,
 		"interface-name": false,
 		"ordered-imports": false,
 		"object-literal-sort-keys": false,

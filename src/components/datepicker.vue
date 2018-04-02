@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Component, Vue, Emit } from "vue-property-decorator"
 import * as moment from "moment"
-import { Getter } from "vuex-class/lib/bindings"
+import { Getter } from "vuex-class"
 // tslint:disable-next-line:no-var-requires
 const Pikaday = require("pikaday")
 
