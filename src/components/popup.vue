@@ -5,7 +5,7 @@
 			<div class="popup fixed-fullscreen">
 				<a class="popup-close" @click="close">×</a>
 				<h4 v-if="title" class="popup-title text-center">{{ title }}</h4>
-				<div class="popup-content text-left" :class="popupContentClass">
+				<div class="popup-content text-left">
 					<slot/>
 				</div>
 				<div 
@@ -34,7 +34,6 @@ export default class extends Vue {
 
 	isOpen: boolean = false
 
-	get popupContentClass() { return { "m-b-2-5": !this.hideAcceptButton }}
 	get okBtnClass() { return { disabled: this.isOkBtnDisabled }}
 
 	open() {
@@ -63,41 +62,38 @@ export default class extends Vue {
 .popup
 	background white
 	margin auto
-	padding 1.5em
 	max-width 350px
 	max-height: 400px
 	bottom auto
+	padding 1em .5em
 	top 5em
 	left 2em
 	right 2em
 	border-radius 2px
 	box-shadow 0 0 2px 1px #00000033
+	display flex
+	flex-direction column
 .popup-backdrop
 	background-color #00000028
-	backdrop-filter blur(2px)
-	webkit-backdrop-filter blur(2px)
 .popup-close
 	position absolute
-	padding 0 .3em
-	right .2em
-	top .2em
+	padding .2em .5em
+	right 0
+	top 0
 	font-size 25px
 	color color_1
 .popup-content
-	overflow auto hidden
+	overflow-x hidden
+	overflow-y auto
+	padding 0 1em
 .popup-title
 	text-transform uppercase
 	font-size 14px
 	color color_1
-	margin -.2em 0 1em 0
-.popup-accept-container
-	position absolute
-	left 0
-	bottom 0
-	right 0
-	.btn
-		display block
-		margin 1.5em
+	margin .5em 0 1em 0
+.popup-accept-container .btn
+	display block
+	margin .5em 1em
 .open-enter-active, .open-leave-active
 	transition opacity .5s
 	.popup
@@ -107,6 +103,4 @@ export default class extends Vue {
 	pointer-events none
 	.popup
 		transform translateY(10%)
-.m-b-2-5
-	margin-bottom 2.5em
 </style>

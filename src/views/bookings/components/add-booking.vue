@@ -29,6 +29,18 @@
 				<div class="col-xs-12">
 					<number-input :name="'Número de persones'" v-model="booking.numPeople"/>
 				</div>
+				<div class="col-xs-6">
+					<label>
+						Finalitzada
+						<input type="checkbox" v-model="booking.isDone">
+					</label>
+				</div>
+				<div class="col-xs-6">
+					<label>
+						Cornfirmada
+						<input type="checkbox" v-model="booking.isConfirmed">
+					</label>
+				</div>
 			</div>
 		</popup>
 	</div>
